@@ -17,13 +17,24 @@ bl_info = {
     "description" : "",
     "blender" : (2, 80, 0),
     "version" : (0, 0, 1),
-    "location" : "",
-    "warning" : "",
-    "category" : "Generic"
+    "location" : "View3D",
+    "warning":"WIP - ",
+    "category" : "Tools"
 }
 
+import bpy
+from . OP import HSP_OT_ExporterOperator, HSP_OT_UDPOperator
+from . UI import HSP_PT_Panel, HSPProperties
+
+classes = ( HSP_OT_ExporterOperator, HSP_OT_UDPOperator, HSP_PT_Panel, HSPProperties)
+
+
+register_classes, unregister_classes = bpy.utils.register_classes_factory(classes)
+
 def register():
-    ...
+    register_classes()
+    bpy.types.Scene.HSP =  bpy.props.PointerProperty(type=HSPProperties)
 
 def unregister():
-    ...
+    unregister_classes()
+    del bpy.types.Scene.HSP

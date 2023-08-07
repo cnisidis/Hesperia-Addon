@@ -3,13 +3,21 @@ import sys
 
 
 
-class Hesperia_OT_UDPOperator(bpy.types.Operator):
-    bl_idname = "Hesperia.udp"
+class HSP_OT_UDPOperator(bpy.types.Operator):
+    bl_idname = "hsp.udp"
     bl_label = "UDP Receiver"
 
+    def __init__(self) -> None:
+        super().__init__()
+        
+    def execute(self, context):
+        pass   
 
-class Hesperia_OT_ExporterOperator(bpy.types.Operator):
-    bl_idname = "Hesperia.exporter"
+    
+
+
+class HSP_OT_ExporterOperator(bpy.types.Operator):
+    bl_idname = "hsp.exporter"
     bl_label = "Export"
 
 
